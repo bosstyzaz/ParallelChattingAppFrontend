@@ -5,6 +5,7 @@ import MyMessage from './Components/MyMessage/MyMessage';
 import ChatBox from './Components/ChatBox/ChatBox';
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import TextInput from './Components/TextInput/TextInput';
 
 
 class Routes extends Component {
@@ -20,6 +21,7 @@ class Routes extends Component {
                         <Route exact path="/message" component={Message} />
                         <Route exact path="/mymessage" component={MyMessage} />
                         <Route exact path="/chatbox" component={ChatBox} />
+                        <Route exact path="/textinput" component={TextInput} />
                     </Switch>
                 </BrowserRouter>
                 
