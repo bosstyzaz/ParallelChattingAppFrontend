@@ -3,6 +3,8 @@ import App from './Components/FirstPage/App';
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 
+import MyGruop from './Components/MyGroup/MyGroup';
+
 
 class Routes extends Component {
     render() {
@@ -14,6 +16,7 @@ class Routes extends Component {
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={App} />
+                        <Route exact path="/MyGroup" component={MyGruop} />
                     </Switch>
                 </BrowserRouter>
                 
