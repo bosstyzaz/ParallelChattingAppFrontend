@@ -1,12 +1,12 @@
 .MyGroup-container {
     width:20%;
-    height:50%;
+    height:500px;
 }
 
 .MyGroup-header {
     text-align: center;
     padding:6% 5%;
-    width: 98.5%;
+    width: 92%;
     border-left: solid gray 1px;
     border-right: solid gray 1px;
 }
