@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Search } from '../SearchInput/SearchInput';
+import { SearchResult } from '../SearchResult/SearchResult';
 
-class SearchBox extends React.Component {
+export class SearchBox extends React.Component {
     constructor(props) {
       super(props);
       this.state = {};
@@ -11,6 +11,7 @@ class SearchBox extends React.Component {
     render() {
         return <div>
             <Search></Search>
+            <SearchResult></SearchResult>
         </div>
     }
 

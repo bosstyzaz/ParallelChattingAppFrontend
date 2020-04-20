@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
 
 export class Search extends React.Component {
     constructor(props){
@@ -20,6 +19,7 @@ export class Search extends React.Component {
                     onChange = {this.handleInputChange}
                 />
                 <p>{this.state.query}</p>
+                <button>search</button>
             </form>
         )
     }
