@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './SearchResult.css';
+import { Result } from '../Result/Result';
 
 export class SearchResult extends React.Component {
     constructor(props){
@@ -9,12 +11,13 @@ export class SearchResult extends React.Component {
     render() {
         return (
             <div>
+                <div class="bbb">
                 <h2>Results</h2>
-                <div><p>Group1</p><button>add</button></div>
-                <div><p>Group2</p><button>add</button></div>
-                <div><p>Group3</p><button>add</button></div>
-                <div><p>Group4</p><button>add</button></div>
-                <div><p>Group5</p><button>add</button></div>
+                </div>
+                <Result></Result>
+                <Result></Result>
+                <Result></Result>
+                <Result></Result>
             </div>
         );
     }

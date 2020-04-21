@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search } from '../SearchInput/SearchInput';
 import { SearchResult } from '../SearchResult/SearchResult';
+import './SearchBox.css';
 
 export class SearchBox extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ export class SearchBox extends React.Component {
     }
 
     render() {
-        return <div>
+        return <div class="a">
             <Search></Search>
             <SearchResult></SearchResult>
         </div>
