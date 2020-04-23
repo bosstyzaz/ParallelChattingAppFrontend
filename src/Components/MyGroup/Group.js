@@ -7,25 +7,11 @@ class Group extends React.Component {
         this.state = {
           isLoading: false,
         }
-        this.handleGetUnread = this.handleGetUnread.bind(this);
-        this.handleLeave = this.handleLeave.bind(this);
-        this.handleGetRead = this.handleGetRead.bind(this);
+
     }
 
     componentDidMount(){
 
-    }
-
-    handleGetRead(e){
-
-    }
-
-    handleGetUnread(e){
-        //request backend to get unread message then show in the chatbox
-    }
-
-    handleLeave(e){
-        //tell backend to remove this group from groupList of this user then re-render
     }
 
     render() {
@@ -33,9 +19,9 @@ class Group extends React.Component {
             <div className='group-container'>
                 <div className='group-name'>{this.props.group}</div>
                 <div>
-                    <button className='read-button' onClick={this.handleGetRead}>read</button>
-                    <button className='getUnread-button' onClick={this.handleGetUnread}>getUnread</button>
-                    <button className='leave-button' onClick={this.handleLeave}>Leave</button>
+                    <button className='read-button' onClick={this.props.handleRead.bind(this,this.props.group)}>read</button>
+                    <button className='getUnread-button' onClick={this.props.handleUnread.bind(this,this.props.group)}>getUnread</button>
+                    <button className='leave-button' onClick={this.props.handleLeave.bind(this,this.props.group)}>Leave</button>
                 </div>
             </div>
         );

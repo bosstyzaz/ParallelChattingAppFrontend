@@ -10,3 +10,9 @@
     border-left: solid gray 1px;
     border-right: solid gray 1px;
 }
+
+.GroupList {
+    overflow: scroll;
+    width: 104%;
+    height: 100%;
+}

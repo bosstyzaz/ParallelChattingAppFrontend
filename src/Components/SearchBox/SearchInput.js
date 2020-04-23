@@ -19,6 +19,7 @@ class SearchInput extends React.Component {
                     placeholder="Search for Group"
                     ref = {input => this.search = input}
                     onChange = {this.handleInputChange}
+                    className='search-input'
                 />
                 <p>{this.state.query}</p>
                 </div>
