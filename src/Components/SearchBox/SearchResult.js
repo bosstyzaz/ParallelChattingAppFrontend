@@ -15,9 +15,6 @@ class SearchResult extends React.Component {
                 <h2>Results</h2>
                 </div>
                 <Result></Result>
-                <Result></Result>
-                <Result></Result>
-                <Result></Result>
             </div>
         );
     }

@@ -9,9 +9,14 @@ class Group extends React.Component {
         }
         this.handleGetUnread = this.handleGetUnread.bind(this);
         this.handleLeave = this.handleLeave.bind(this);
+        this.handleGetRead = this.handleGetRead.bind(this);
     }
 
     componentDidMount(){
+
+    }
+
+    handleGetRead(e){
 
     }
 
@@ -28,6 +33,7 @@ class Group extends React.Component {
             <div className='group-container'>
                 <div className='group-name'>{this.props.group}</div>
                 <div>
+                    <button className='read-button' onClick={this.handleGetRead}>read</button>
                     <button className='getUnread-button' onClick={this.handleGetUnread}>getUnread</button>
                     <button className='leave-button' onClick={this.handleLeave}>Leave</button>
                 </div>

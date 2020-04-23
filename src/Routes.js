@@ -6,6 +6,7 @@ import App from './Components/FirstPage/App';
 import ChatBox from './Components/ChatBox/ChatBox';
 import MyGruop from './Components/MyGroup/MyGroup';
 import SearchBox from './Components/SearchBox/SearchBox';
+import ChatPage from './Components/ChatPage/ChatPage';
 
 
 class Routes extends Component {
@@ -21,6 +22,7 @@ class Routes extends Component {
                         <Route exact path="/ChatBox" component={ChatBox} />
                         <Route exact path="/MyGroup" component={MyGruop} />
                         <Route exact path="/SearchBox" component={SearchBox}/>
+                        <Route exact path="/ChatPage" component={ChatPage}/>
 
                     </Switch>
                 </BrowserRouter>

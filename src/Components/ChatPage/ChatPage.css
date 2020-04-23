@@ -1,0 +1,14 @@
+.main-page {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-part {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.right-part {
+    display: flex;
+}

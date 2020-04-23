@@ -4,6 +4,7 @@ import Message from "./Message";
 import MyMessage from "./MyMessage";
 import ScrollArea from "react-scrollbar";
 import { Scrollbars } from 'react-custom-scrollbars';
+import TextInput from './TextInput';
 
 class ChatBox extends React.Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class ChatBox extends React.Component {
 
     render() {
         return (
+            <div>
             <Scrollbars style={{ width: 1000, height: 500 }}>
             <div className="chatbox">
             <h1>Gu is Chatbox</h1>
@@ -36,7 +38,8 @@ class ChatBox extends React.Component {
             <MyMessage message="จัด"/>
             </div>
             </Scrollbars>
-            
+            <TextInput />
+            </div>
         );
     }
 
