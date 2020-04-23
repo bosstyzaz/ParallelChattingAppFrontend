@@ -9,8 +9,8 @@ class Result extends React.Component {
 
     render() {
         return (
-            <div class="abb">
-                <div class="column"><p>GroupName</p></div><div class="column"><button>add</button></div>
+            <div className="abb">
+                <div className="column"><p>GroupName</p></div><div className="column"><button>add</button></div>
             </div>
         )
     }

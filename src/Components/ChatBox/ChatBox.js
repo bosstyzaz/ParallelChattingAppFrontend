@@ -16,8 +16,8 @@ class ChatBox extends React.Component {
 
     render() {
         return (
-            <div>
-            <Scrollbars style={{ width: 1000, height: 500 }}>
+            <div className='chatbox-container'>
+            <Scrollbars className='scrollbar-chat'>
             <div className="chatbox">
             <h1>Gu is Chatbox</h1>
             <Message message="hello"/>

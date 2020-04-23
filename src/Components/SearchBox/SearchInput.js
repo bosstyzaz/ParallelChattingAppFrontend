@@ -14,7 +14,7 @@ class SearchInput extends React.Component {
     render() {
         return (
             <form>
-                <div class="column">
+                <div className="column">
                 <input
                     placeholder="Search for Group"
                     ref = {input => this.search = input}
@@ -23,7 +23,7 @@ class SearchInput extends React.Component {
                 />
                 <p>{this.state.query}</p>
                 </div>
-                <div class="column">
+                <div className="column">
                 <button>search</button>
                 </div>
             </form>

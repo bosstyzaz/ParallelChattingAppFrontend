@@ -10,7 +10,7 @@ class SearchBox extends React.Component {
     }
 
     render() {
-        return <div class="a">
+        return <div className="a">
             <SearchInput></SearchInput>
             <SearchResult></SearchResult>
         </div>

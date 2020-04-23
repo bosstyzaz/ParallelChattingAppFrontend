@@ -11,7 +11,7 @@ class SearchResult extends React.Component {
     render() {
         return (
             <div>
-                <div class="bbb">
+                <div className="bbb">
                 <h2>Results</h2>
                 </div>
                 <Result></Result>
