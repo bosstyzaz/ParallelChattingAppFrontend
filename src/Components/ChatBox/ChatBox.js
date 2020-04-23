@@ -1,7 +1,7 @@
 import React from "react";
 import "./ChatBox.css";
-import Message from "../Message/Message";
-import MyMessage from "../MyMessage/MyMessage";
+import Message from "./Message";
+import MyMessage from "./MyMessage";
 import ScrollArea from "react-scrollbar";
 import { Scrollbars } from 'react-custom-scrollbars';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Result.css';
 
-export class Result extends React.Component {
+class Result extends React.Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -15,3 +15,5 @@ export class Result extends React.Component {
         )
     }
 }
+
+export default Result;

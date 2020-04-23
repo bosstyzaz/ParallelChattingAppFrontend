@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './SearchInput.css';
 
-export class Search extends React.Component {
+class SearchInput extends React.Component {
     constructor(props){
         super(props);
         this.state = {searchText: ''};
@@ -29,3 +29,5 @@ export class Search extends React.Component {
         )
     }
 }
+
+export default SearchInput;

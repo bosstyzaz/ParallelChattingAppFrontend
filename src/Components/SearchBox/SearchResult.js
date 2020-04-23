@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './SearchResult.css';
-import { Result } from '../Result/Result';
+import Result from './Result';
 
-export class SearchResult extends React.Component {
+class SearchResult extends React.Component {
     constructor(props){
         super(props);
         this.state = {}
@@ -22,3 +22,5 @@ export class SearchResult extends React.Component {
         );
     }
 }
+
+export default SearchResult;

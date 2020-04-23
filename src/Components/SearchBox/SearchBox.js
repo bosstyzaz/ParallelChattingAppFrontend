@@ -1,9 +1,9 @@
 import React from 'react';
-import { Search } from '../SearchInput/SearchInput';
-import { SearchResult } from '../SearchResult/SearchResult';
+import SearchInput from './SearchInput';
+import SearchResult from './SearchResult';
 import './SearchBox.css';
 
-export class SearchBox extends React.Component {
+class SearchBox extends React.Component {
     constructor(props) {
       super(props);
       this.state = {};
@@ -11,9 +11,11 @@ export class SearchBox extends React.Component {
 
     render() {
         return <div class="a">
-            <Search></Search>
+            <SearchInput></SearchInput>
             <SearchResult></SearchResult>
         </div>
     }
 
 }
+
+export default SearchBox;
