@@ -1,8 +1,14 @@
 import { Switch, Route, BrowserRouter,Link,useParams } from 'react-router-dom';
-import App from './Components/FirstPage/App';
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { SearchBox } from './Components/FirstPage/SearchBox/SearchBox';
+
+import App from './Components/FirstPage/App';
+import Message from './Components/Message/Message';
+import MyMessage from './Components/MyMessage/MyMessage';
+import ChatBox from './Components/ChatBox/ChatBox';
+import TextInput from './Components/TextInput/TextInput';
+import MyGruop from './Components/MyGroup/MyGroup';
 
 
 class Routes extends Component {
@@ -15,7 +21,13 @@ class Routes extends Component {
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={App} />
+                        <Route exact path="/message" component={Message} />
+                        <Route exact path="/mymessage" component={MyMessage} />
+                        <Route exact path="/chatbox" component={ChatBox} />
+                        <Route exact path="/textinput" component={TextInput} />
+                        <Route exact path="/MyGroup" component={MyGruop} />
                         <Route exact path="/eiei" component={SearchBox}/>
+
                     </Switch>
                 </BrowserRouter>
                 
