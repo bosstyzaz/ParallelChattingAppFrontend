@@ -15,33 +15,48 @@ class ChatBox extends React.Component {
     }
 
     render() {
-        return (
-            <div className='chatbox-container'>
-            <Scrollbars className='scrollbar-chat'>
-            <div className="chatbox">
-            <h1>Gu is Chatbox</h1>
-            <Message message="hello"/>
-            <MyMessage message="What's up Boom"/>
-            <Message message="ไอปาค กูต้องการความช่วยเหลือgfsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkasdsadsadsasda"/>
-            <MyMessage message="มึงพูดเหี้ยไรเนี่ย"/>
-            <MyMessage message="เมาป่าว"/>
-            <Message message="ไม่เมา อยากเมาปะ"/>
-            <Message message="ข้าวสาร"/>
-            <MyMessage message="จัด"/>
-            <Message message="hello"/>
-            <MyMessage message="What's up Boom"/>
-            <Message message="ไอปาค กูต้องการความช่วยเหลือgfsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkasdsadsadsasda"/>
-            <MyMessage message="มึงพูดเหี้ยไรเนี่ย"/>
-            <MyMessage message="เมาป่าว"/>
-            <Message message="ไม่เมา อยากเมาปะ"/>
-            <Message message="ข้าวสาร"/>
-            <MyMessage message="จัด"/>
-            </div>
-            </Scrollbars>
-            <TextInput />
-            </div>
-        );
+      return (
+        <div className='chatbox-container'>
+          <Scrollbars className='scrollbar-chat'>
+          {this.props.messages.map((message, index) => {
+            return (
+              <Message key={index} username={message.senderId} text={message.text}/>
+            )
+          })}
+          </Scrollbars>
+          <TextInput />
+        </div>
+      )
     }
+
+    // render() {
+    //     return (
+    //         <div className='chatbox-container'>
+    //         <Scrollbars className='scrollbar-chat'>
+    //         <div className="chatbox">
+    //         <h1>Gu is Chatbox</h1>
+    //         <Message message="hello"/>
+    //         <MyMessage message="What's up Boom"/>
+    //         <Message message="ไอปาค กูต้องการความช่วยเหลือgfsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkasdsadsadsasda"/>
+    //         <MyMessage message="มึงพูดเหี้ยไรเนี่ย"/>
+    //         <MyMessage message="เมาป่าว"/>
+    //         <Message message="ไม่เมา อยากเมาปะ"/>
+    //         <Message message="ข้าวสาร"/>
+    //         <MyMessage message="จัด"/>
+    //         <Message message="hello"/>
+    //         <MyMessage message="What's up Boom"/>
+    //         <Message message="ไอปาค กูต้องการความช่วยเหลือgfsdkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkasdsadsadsasda"/>
+    //         <MyMessage message="มึงพูดเหี้ยไรเนี่ย"/>
+    //         <MyMessage message="เมาป่าว"/>
+    //         <Message message="ไม่เมา อยากเมาปะ"/>
+    //         <Message message="ข้าวสาร"/>
+    //         <MyMessage message="จัด"/>
+    //         </div>
+    //         </Scrollbars>
+    //         <TextInput />
+    //         </div>
+    //     );
+    // }
 
 }
 
