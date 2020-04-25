@@ -14,6 +14,10 @@ class ChatBox extends React.Component {
       };
     }
 
+    sendMessage(text) {
+        
+    }
+
     render() {
       return (
         <div className='chatbox-container'>
@@ -24,7 +28,7 @@ class ChatBox extends React.Component {
             )
           })}
           </Scrollbars>
-          <TextInput />
+          <TextInput sendMessage={this.sendMessage}/>
         </div>
       )
     }

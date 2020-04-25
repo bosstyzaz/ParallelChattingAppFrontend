@@ -1,4 +1,4 @@
-import { Switch, Route, BrowserRouter,Link,useParams } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 

@@ -3,7 +3,6 @@ import SearchBox from '../SearchBox/SearchBox';
 import MyGroup from '../MyGroup/MyGroup';
 import ChatBox from '../ChatBox/ChatBox';
 import './ChatPage.css';
-import TextInput from '../ChatBox/TextInput';
 
 class ChatPage extends React.Component {
     constructor(props) {
