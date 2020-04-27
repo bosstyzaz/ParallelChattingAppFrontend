@@ -35,6 +35,7 @@ class TextInput extends React.Component {
       <div>
         <from onSubmit={this.handleSubmit}>
           <input
+            value={this.state.message}
             onChange = {this.handleChange}
             placeholder="Type your message and hit ENTER" 
             type="text" id="username" name="username" />

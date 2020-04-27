@@ -48,6 +48,10 @@ class ChatPage extends React.Component {
         //tell backend to delete that group(e)
     }
 
+    componentDidUpdate() {
+        
+    }
+
 
 
     render(){

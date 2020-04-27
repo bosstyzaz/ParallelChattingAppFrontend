@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 class FirstPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
       username: '',
+      redirect: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleEnter = this. handleEnter.bind(this);
@@ -15,15 +19,27 @@ class FirstPage extends React.Component {
 
   }
 
+
   handleChange(e){
     this.setState({ [e.target.name]: e.target.value });
   }
 
   handleEnter(e){
     e.preventDefault();
+    axios.post(`http://localhost:3001/clients`,{
+      "name": "boss",
+      "group": []
+    })
+    .then(res => {
+      console.log(res);
+    })
+    this.setState({redirect: "/ChatPage"})
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />
+    }
     return (
       <div className='page-container'>
           <div className='main-header'>The Best Group Chat Application</div>
