@@ -12,8 +12,7 @@ class ChatPage extends React.Component {
             isLoading: false,
             username: 'Ricardo Milos',
             id: null,
-            groupList : ['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20'],
-            gg: [],
+            groupList : [],
             atGroup: '',
             messages: [{
                 senderId: 'boom',
@@ -37,6 +36,7 @@ class ChatPage extends React.Component {
         this.setState({
             atGroup: e,
         });
+        console.log('eiei')
         //query read
     }
 
@@ -69,14 +69,12 @@ class ChatPage extends React.Component {
             for(i=0;i<a;i++) {
                 ng.push(res.data[i].name)
             }
-            console.log(ng);
-            this.setState({gg: ng});
+            this.setState({groupList: ng});
         })
     }
 
 
     render(){
-        console.log(this.state.id)
         this.getGroup()
         return(
             <div className='main-page'>
@@ -85,7 +83,7 @@ class ChatPage extends React.Component {
                     <MyGroup handleRead={this.handleRead}
                              handleUnread={this.handleUnread}
                              handleLeave={this.handleUnread} 
-                             groupList={this.state.gg}/>
+                             groupList={this.state.groupList}/>
                 </div>
                 <div className='right-part'>
                     <ChatBox messages={this.state.messages} group={this.state.atGroup} id={this.state.id}/>
