@@ -5,12 +5,14 @@ import MyMessage from "./MyMessage";
 import ScrollArea from "react-scrollbar";
 import { Scrollbars } from 'react-custom-scrollbars';
 import TextInput from './TextInput';
+import Axios from 'axios';
 
 class ChatBox extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         isLoading: false,
+        groupName: ''
       };
     }
 
@@ -18,11 +20,23 @@ class ChatBox extends React.Component {
         
     }
 
+    componentDidUpdate() {
+      Axios
+      .get(`http://localhost:3001/groups/${this.props.groupID}`)
+      .then((response) => {
+        console.log(response);
+        this.setState({groupName: response.data.name});
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+
     render() {
       return (
         <div className='chatbox-container'>
           <Scrollbars className='scrollbar-chat'>
-          <h1>{this.props.group}</h1>
+          <h1>{this.state.groupName}</h1>
           {this.props.messages.map((message, index) => {
             return (
               <Message key={index} username={message.senderId} text={message.text}/>
