@@ -67,7 +67,9 @@ class ChatPage extends React.Component {
             var i;
             var ng = [];
             for(i=0;i<a;i++) {
-                ng.push(res.data[i].name)
+                ng.push({gname : res.data[i].name,
+                    gid : res.data[i]._id
+                })
             }
             this.setState({groupList: ng});
         })

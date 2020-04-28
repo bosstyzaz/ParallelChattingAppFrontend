@@ -50,7 +50,7 @@ class MyGroup extends React.Component {
               <div className="GroupList">
                 {
                     this.props.groupList.map(group =>{
-                        return <Group handleRead={this.props.handleRead} handleUnread={this.props.handleUnread} handleLeave={this.props.handleLeave} group={group}/>;
+                        return <Group handleRead={this.props.handleRead} handleUnread={this.props.handleUnread} handleLeave={this.props.handleLeave} groupname={group.gname} groupid={group.gid}/>;
                     })
                 }
             </div>
