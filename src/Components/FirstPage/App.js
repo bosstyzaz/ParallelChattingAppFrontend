@@ -9,6 +9,7 @@ class FirstPage extends React.Component {
     this.state = {
       isLoading: false,
       username: '',
+      id: null,
       redirect: null
     }
     this.handleChange = this.handleChange.bind(this);
@@ -21,25 +22,30 @@ class FirstPage extends React.Component {
 
 
   handleChange(e){
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ username: e.target.value });
   }
 
   handleEnter(e){
     e.preventDefault();
     axios.post(`http://localhost:3001/clients`,{
-      "name": "boss",
+      "name": this.state.username,
       "group": []
     })
     .then(res => {
       console.log(res);
+      this.setState({id: res.data._id})
+      //console.log(this.state.id)
+      this.props.history.push({
+        pathname: '/ChatPage',
+        state: {id: this.state.id}
+      })
     })
-    this.setState({redirect: "/ChatPage"})
   }
 
   render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />
-    }
+    // if (this.state.redirect) {
+    //   return <Redirect to={{pathname:this.state.redirect, state: [{id: "1"}]}} />
+    // }
     return (
       <div className='page-container'>
           <div className='main-header'>The Best Group Chat Application</div>

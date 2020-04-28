@@ -10,6 +10,7 @@ class ChatPage extends React.Component {
         this.state = {
             isLoading: false,
             username: 'Ricardo Milos',
+            id: 2,
             groupList : ['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20'],
             atGroup: '',
             messages: [{
@@ -45,6 +46,7 @@ class ChatPage extends React.Component {
     }
 
     handleLeave(e){
+        
         //tell backend to delete that group(e)
     }
 
@@ -52,9 +54,18 @@ class ChatPage extends React.Component {
         
     }
 
+    componentWillMount(){
+        if(this.props.location.state) {
+            this.setState({
+                id : this.props.location.state.id
+            })
+        }
+    }
+
 
 
     render(){
+        console.log(this.state.id)
         return(
             <div className='main-page'>
                 <div className='left-part'>

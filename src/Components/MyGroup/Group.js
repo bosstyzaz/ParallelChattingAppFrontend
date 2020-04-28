@@ -11,7 +11,7 @@ class Group extends React.Component {
     }
 
     componentDidMount(){
-
+        
     }
 
     render() {
