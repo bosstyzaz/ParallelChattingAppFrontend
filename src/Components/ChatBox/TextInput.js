@@ -1,9 +1,10 @@
 import React from "react";
 import "./TextInput.css";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import Axios from "axios";
 
 
 class TextInput extends React.Component {
@@ -28,19 +29,30 @@ class TextInput extends React.Component {
     e.preventDefault()
     this.props.sendMessage(this.state.message)
     console.log(this.state.message)
+    Axios
+      .post("http://localhost:3001/messages", {
+        "content": this.state.message
+      })
+      .then((response) => {
+        console.log(response);
+        // this.myCars = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
     return (
       <div>
-        <from onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <input
             value={this.state.message}
             onChange = {this.handleChange}
             placeholder="Type your message and hit ENTER" 
             type="text" id="username" name="username" />
           <button className="btn"><FontAwesomeIcon icon={['fas', 'paper-plane']} type="submit"/></button>
-        </from>
+        </form>
       </div>
     );
   }
