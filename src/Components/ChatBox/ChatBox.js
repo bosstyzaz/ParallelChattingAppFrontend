@@ -22,6 +22,7 @@ class ChatBox extends React.Component {
       return (
         <div className='chatbox-container'>
           <Scrollbars className='scrollbar-chat'>
+          <h1>{this.props.group}</h1>
           {this.props.messages.map((message, index) => {
             return (
               <Message key={index} username={message.senderId} text={message.text}/>

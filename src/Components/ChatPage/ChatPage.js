@@ -12,7 +12,7 @@ class ChatPage extends React.Component {
             username: 'Ricardo Milos',
             id: 2,
             groupList : ['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20'],
-            atGroup: '',
+            atGroup: 'g1',
             messages: [{
                 senderId: 'boom',
                 text: 'Hey win, how are you ?'
@@ -76,7 +76,7 @@ class ChatPage extends React.Component {
                              groupList={this.state.groupList}/>
                 </div>
                 <div className='right-part'>
-                    <ChatBox messages={this.state.messages}/>
+                    <ChatBox messages={this.state.messages} group={this.state.atGroup}/>
                 </div>
             </div>
         );
