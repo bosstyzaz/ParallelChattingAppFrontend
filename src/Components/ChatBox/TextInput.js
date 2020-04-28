@@ -40,6 +40,10 @@ class TextInput extends React.Component {
       .catch((error) => {
         console.log(error);
       });
+      document.getElementById("username").value = "";
+      this.setState({
+        message: ''
+      })
   }
 
   render() {
