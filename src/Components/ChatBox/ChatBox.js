@@ -24,7 +24,6 @@ class ChatBox extends React.Component {
       Axios
       .get(`http://localhost:3001/groups/${this.props.groupID}`)
       .then((response) => {
-        console.log(response);
         this.setState({groupName: response.data.name});
       })
       .catch((error) => {

@@ -48,7 +48,11 @@ class ChatPage extends React.Component {
     }
 
     handleLeave(e){
-        
+        console.log('jjjjjj')
+        axios.put(`http://localhost:3001/groups/${e}/client/remove/${this.state.id}`)
+        .then(res => {
+            console.log(res)
+        })
         //tell backend to delete that group(e)
     }
 
@@ -58,21 +62,31 @@ class ChatPage extends React.Component {
                 id : this.props.location.state.id
             })
         }
+    }
+    
+    componentDidMount() {
         this.getGroup()
     }
 
     getGroup() {
-        axios.get('http://localhost:3001/groups')
+        var memgroup;
+        console.log(this.state.id)
+        axios.get(`http://localhost:3001/clients/${this.state.id}`)
         .then(res => {
-            var a = res.data.length;
-            var i;
-            var ng = [];
-            for(i=0;i<a;i++) {
-                ng.push({gname : res.data[i].name,
-                    gid : res.data[i]._id
-                })
+            memgroup = res.data.group
+            if(memgroup.length !== 0){
+                let g = [];
+                for(let i=0; i< memgroup.length;i++){
+                    axios.get(`http://localhost:3001/groups/${memgroup[i].group_id}`)
+                    .then(res => {
+                        console.log(res)
+                        g.push({gname : res.data.name,
+                            gid : res.data._id
+                        })
+                        this.setState({groupList:g})
+                    })
+                }
             }
-            this.setState({groupList: ng});
         })
     }
 
@@ -81,11 +95,12 @@ class ChatPage extends React.Component {
         return(
             <div className='main-page'>
                 <div className='left-part'>
-                    <SearchBox />
+                    <SearchBox id={this.state.id}/>
                     <MyGroup handleRead={this.handleRead}
                              handleUnread={this.handleUnread}
-                             handleLeave={this.handleUnread} 
-                             groupList={this.state.groupList}/>
+                             handleLeave={this.handleLeave} 
+                             groupList={this.state.groupList}
+                             userId ={this.state.id}/>
                 </div>
                 <div className='right-part'>
                     <ChatBox messages={this.state.messages} groupID={this.state.atGroup} id={this.state.id} groupName={this.state.groupList.name}/>

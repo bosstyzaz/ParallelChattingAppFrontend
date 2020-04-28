@@ -1,7 +1,7 @@
 import React from 'react';
 import './MyGroup.css'
 import Group from './Group';
-import Axios from "axios";
+import axios from "axios";
 
 class MyGroup extends React.Component {
     constructor(props) {
@@ -20,15 +20,19 @@ class MyGroup extends React.Component {
     }
 
     createGroup() {
-      Axios
+      console.log(this.state.groupID)
+      axios
       .post("http://localhost:3001/groups", {
         "name": this.state.groupName,
-        "id": this.state.groupID,
+        "client": [],
         "message": []
       })
       .then((response) => {
         console.log(response);
-        // this.myCars = response.data;
+        axios.put(`http://localhost:3001/groups/${response.data._id}/client/add/${this.props.userId}`)
+        .then(res => {
+            console.log(res)
+      })
       })
       .catch((error) => {
         console.log(error);
@@ -36,11 +40,9 @@ class MyGroup extends React.Component {
     }
 
     handleGroupnameChange() {
-      console.log("kao")
       this.setState({
         groupName: document.getElementById("create_group").value
       })
-      console.log(this.state.groupName)
     }
 
     render() {

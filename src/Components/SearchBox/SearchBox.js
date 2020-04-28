@@ -9,6 +9,7 @@ class SearchBox extends React.Component {
       this.state = {
           searchText: '',
           groupFound: null,
+          groupIdFound: null,
         };
       this.handleSearch = this.handleSearch.bind(this);
     }
@@ -21,14 +22,23 @@ class SearchBox extends React.Component {
         axios.get(`http://localhost:3001/groups/findbyname/${this.state.searchText}`)
         .then(res => {
             console.log(res);
+            this.setState({groupFound: res.data.name, groupIdFound: res.data._id})
         })
+        .catch((error) => {
+            this.setState({groupFound: null, groupIdFound: null});
+            console.log(error);
+        });
+        console.log('asdsad')
     }
 
     render() {
         let result;
-        // if(groupFound){
-        //     result = <>
-        // }
+        if(this.state.groupFound){
+            result = <SearchResult groupname={this.state.groupFound} groupId={this.state.groupIdFound} userid = {this.props.id}></SearchResult>
+            console.log(this.state.groupIdFound)
+        } else {
+            result = <div><h2>Results</h2><h1>Not Found</h1></div>
+        }
         return <div className="a">
             <div>
                 <div className="column">
@@ -45,7 +55,6 @@ class SearchBox extends React.Component {
                 </div>
             </div>
             {result}
-            <SearchResult></SearchResult>
         </div>
     }
 
