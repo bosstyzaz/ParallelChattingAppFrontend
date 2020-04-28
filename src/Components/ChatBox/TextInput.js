@@ -26,12 +26,15 @@ class TextInput extends React.Component {
   }
 
   handleSubmit(e) {
+    console.log(this.props.id)
     e.preventDefault()
     this.props.sendMessage(this.state.message)
     console.log(this.state.message)
     Axios
       .post("http://localhost:3001/messages", {
-        "content": this.state.message
+        "content": this.state.message,
+         "id": this.props.id,
+         "group": this.props.group
       })
       .then((response) => {
         console.log(response);

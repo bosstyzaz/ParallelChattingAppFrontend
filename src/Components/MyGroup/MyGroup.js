@@ -8,7 +8,8 @@ class MyGroup extends React.Component {
         super(props);
         this.state = {
           isLoading: false,
-          groupName: ""
+          groupName: "",
+          groupID: ""
         }
         this.handleGroupnameChange = this.handleGroupnameChange.bind(this)
         this.createGroup = this.createGroup.bind(this)
@@ -22,6 +23,7 @@ class MyGroup extends React.Component {
       Axios
       .post("http://localhost:3001/groups", {
         "name": this.state.groupName,
+        "id": this.state.groupID,
         "message": []
       })
       .then((response) => {
