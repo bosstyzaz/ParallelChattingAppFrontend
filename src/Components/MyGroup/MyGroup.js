@@ -19,8 +19,8 @@ class MyGroup extends React.Component {
         return (
           <div className='MyGroup-container'>
               <div className='MyGroup-header'>My Groups</div>
+              <button>Create Group</button>
               <div className="GroupList">
-
                 {
                     this.props.groupList.map(group =>{
                         return <Group handleRead={this.props.handleRead} handleUnread={this.props.handleUnread} handleLeave={this.props.handleLeave} group={group}/>;
