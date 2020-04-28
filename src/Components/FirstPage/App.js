@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css'
+import './App.css';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
 class FirstPage extends React.Component {
   constructor(props) {
@@ -16,11 +15,6 @@ class FirstPage extends React.Component {
     this.handleEnter = this. handleEnter.bind(this);
   }
 
-  componentDidMount(){
-
-  }
-
-
   handleChange(e){
     this.setState({ username: e.target.value });
   }
@@ -34,7 +28,6 @@ class FirstPage extends React.Component {
     .then(res => {
       console.log(res);
       this.setState({id: res.data._id})
-      //console.log(this.state.id)
       this.props.history.push({
         pathname: '/ChatPage',
         state: {id: this.state.id}
@@ -43,9 +36,6 @@ class FirstPage extends React.Component {
   }
 
   render() {
-    // if (this.state.redirect) {
-    //   return <Redirect to={{pathname:this.state.redirect, state: [{id: "1"}]}} />
-    // }
     return (
       <div className='page-container'>
           <div className='main-header'>The Best Group Chat Application</div>

@@ -3,6 +3,7 @@ import SearchBox from '../SearchBox/SearchBox';
 import MyGroup from '../MyGroup/MyGroup';
 import ChatBox from '../ChatBox/ChatBox';
 import './ChatPage.css';
+import axios from 'axios';
 
 class ChatPage extends React.Component {
     constructor(props) {
@@ -10,8 +11,9 @@ class ChatPage extends React.Component {
         this.state = {
             isLoading: false,
             username: 'Ricardo Milos',
-            id: 2,
+            id: null,
             groupList : ['g1','g2','g3','g4','g5','g6','g7','g8','g9','g10','g11','g12','g13','g14','g15','g16','g17','g18','g19','g20'],
+            gg: [],
             atGroup: '',
             messages: [{
                 senderId: 'boom',
@@ -50,10 +52,6 @@ class ChatPage extends React.Component {
         //tell backend to delete that group(e)
     }
 
-    componentDidUpdate() {
-        
-    }
-
     componentWillMount(){
         if(this.props.location.state) {
             this.setState({
@@ -62,10 +60,24 @@ class ChatPage extends React.Component {
         }
     }
 
+    getGroup() {
+        axios.get('http://localhost:3001/groups')
+        .then(res => {
+            var a = res.data.length;
+            var i;
+            var ng = [];
+            for(i=0;i<a;i++) {
+                ng.push(res.data[i].name)
+            }
+            console.log(ng);
+            this.setState({gg: ng});
+        })
+    }
 
 
     render(){
         console.log(this.state.id)
+        this.getGroup()
         return(
             <div className='main-page'>
                 <div className='left-part'>
@@ -73,7 +85,7 @@ class ChatPage extends React.Component {
                     <MyGroup handleRead={this.handleRead}
                              handleUnread={this.handleUnread}
                              handleLeave={this.handleUnread} 
-                             groupList={this.state.groupList}/>
+                             groupList={this.state.gg}/>
                 </div>
                 <div className='right-part'>
                     <ChatBox messages={this.state.messages}/>
