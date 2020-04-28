@@ -58,6 +58,7 @@ class ChatPage extends React.Component {
                 id : this.props.location.state.id
             })
         }
+        this.getGroup()
     }
 
     getGroup() {
@@ -77,7 +78,6 @@ class ChatPage extends React.Component {
 
 
     render(){
-        this.getGroup()
         return(
             <div className='main-page'>
                 <div className='left-part'>
