@@ -21,17 +21,30 @@ class FirstPage extends React.Component {
 
   handleEnter(e){
     e.preventDefault();
-    axios.post(`http://localhost:3001/clients`,{
-      "name": this.state.username,
-      "group": []
-    })
+    axios.get(`http://localhost:3001/clients/findbyname/${this.state.username}`)
     .then(res => {
+      console.log(res)
+      if(res.data !== ""){
       console.log(res);
       this.setState({id: res.data._id})
       this.props.history.push({
         pathname: '/ChatPage',
         state: {id: this.state.id}
       })
+      } else {
+        axios.post(`http://localhost:3001/clients`,{
+          "name": this.state.username,
+          "group": []
+        })
+        .then(res => {
+          console.log(res);
+          this.setState({id: res.data._id})
+          this.props.history.push({
+            pathname: '/ChatPage',
+            state: {id: this.state.id}
+          })
+      })
+      }
     })
   }
 

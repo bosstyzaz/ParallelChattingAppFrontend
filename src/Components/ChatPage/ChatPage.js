@@ -92,6 +92,7 @@ class ChatPage extends React.Component {
 
 
     render(){
+        console.log(this.state.id)
         return(
             <div className='main-page'>
                 <div className='left-part'>

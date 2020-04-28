@@ -33,7 +33,7 @@ class TextInput extends React.Component {
     Axios
       .post("http://localhost:3001/messages", {
         "content": this.state.message,
-         "id": this.props.id,
+         "sender": this.props.id,
          "group": this.props.group
       })
       .then((response) => {
