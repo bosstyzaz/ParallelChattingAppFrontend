@@ -11,6 +11,7 @@ class ChatBox extends React.Component {
       super(props);
       this.state = {
         isLoading: false,
+        id: this.state.id
       };
     }
 

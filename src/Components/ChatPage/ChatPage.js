@@ -88,7 +88,7 @@ class ChatPage extends React.Component {
                              groupList={this.state.gg}/>
                 </div>
                 <div className='right-part'>
-                    <ChatBox messages={this.state.messages} group={this.state.atGroup}/>
+                    <ChatBox messages={this.state.messages} group={this.state.atGroup} id={this.state.id}/>
                 </div>
             </div>
         );
