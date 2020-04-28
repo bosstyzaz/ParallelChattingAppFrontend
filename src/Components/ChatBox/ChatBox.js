@@ -29,7 +29,7 @@ class ChatBox extends React.Component {
             )
           })}
           </Scrollbars>
-          <TextInput sendMessage={this.sendMessage}/>
+          <TextInput sendMessage={this.sendMessage} id={this.props.id} group={this.props.group}/>
         </div>
       )
     }
