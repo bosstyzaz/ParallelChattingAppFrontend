@@ -29,7 +29,11 @@
 
 .search-button {
     font-size: 30px;
-   
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #8DCAC8;
 }
 
 .first-column {
