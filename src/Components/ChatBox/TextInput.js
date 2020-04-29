@@ -57,7 +57,7 @@ class TextInput extends React.Component {
             className="chat-input"
             value={this.state.message}
             onChange = {this.handleChange}
-            placeholder="Type your message and hit ENTER" 
+            placeholder="Type your message and hit ENTER..." 
             type="text" id="username" name="username" />
           <button className="btn"><FontAwesomeIcon icon={['fas', 'paper-plane']} type="submit"/></button>
         </form>

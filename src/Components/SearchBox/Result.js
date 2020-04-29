@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Result.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Result extends React.Component {
     constructor(props) {
@@ -18,8 +19,13 @@ class Result extends React.Component {
 
     render() {
         return (
-            <div className="abb">
-                <div className="column"><p>{this.props.groupname}</p></div><div className="column"><button onClick={this.handleJoinGroup}>join</button></div>
+            <div className="abb row">
+                <div className="column group-name">
+                    <p>{this.props.groupname}</p>
+                </div>
+                <div className="column join-button-container">
+                    <button className="join-button" onClick={this.handleJoinGroup}><FontAwesomeIcon icon={['fas', 'cannabis']} type="submit"/></button>
+                </div>
             </div>
         )
     }

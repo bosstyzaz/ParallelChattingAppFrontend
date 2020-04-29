@@ -9,6 +9,12 @@
     border-bottom: gray solid 0.5px;
     border-left: gray solid 1px;
     border-right: gray solid 1px; */
-    margin: 5px 5px 5px 5px;
+    /* margin: 5px 5px 5px 5px; */
+    margin-bottom: 15px;
 }
 
+.group-name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 550;
+}

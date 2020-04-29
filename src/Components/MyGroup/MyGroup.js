@@ -43,7 +43,7 @@ class MyGroup extends React.Component {
 
   handleGroupnameChange() {
     this.setState({
-      groupName: document.getElementById("create_group").value,
+      groupName: document.getElementById("create-group").value,
     });
   }
 

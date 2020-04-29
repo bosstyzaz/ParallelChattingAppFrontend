@@ -10,8 +10,8 @@
     text-align: center;
     padding:6% 5%;
     width: 100%;
-    /* border-left: solid gray 1px;
-    border-right: solid gray 1px; */
+    /* border-left: solid gray 1px; */
+    border-right: solid grey 1px; 
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 32px;
     font-weight: 550;
