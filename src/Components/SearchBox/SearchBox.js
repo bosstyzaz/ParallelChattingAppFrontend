@@ -2,6 +2,7 @@ import React from 'react';
 import SearchResult from './SearchResult';
 import './SearchBox.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class SearchBox extends React.Component {
     constructor(props) {
@@ -37,21 +38,22 @@ class SearchBox extends React.Component {
             result = <SearchResult groupname={this.state.groupFound} groupId={this.state.groupIdFound} userid = {this.props.id}></SearchResult>
             console.log(this.state.groupIdFound)
         } else {
-            result = <div><h2>Results</h2><h1>Not Found</h1></div>
+            result = <div><h2> Results:</h2><h3>     Not Found</h3></div>
         }
         return <div className="a">
-            <div>
-                <div className="column">
+            <div className="search-header">Search</div>
+            <div className="search-container row">
+                <div className="first-column column">
                 <input
-                    placeholder="Search for Group"
+                    placeholder=" Search for Group..."
                     ref = {input => this.search = input}
                     onChange = {this.handleInputChange}
                     className='search-input'
                 />
                 <p>{this.state.query}</p>
                 </div>
-                <div className="column">
-                <button onClick={this.handleSearch}>search</button>
+                <div className="second-column column">
+                <button className="search-button" onClick={this.handleSearch}><FontAwesomeIcon icon={['fas', 'search']} type="submit"/></button>
                 </div>
             </div>
             {result}

@@ -42,3 +42,11 @@
   #my_message {
     flex-direction: column;
   }
+
+  .yours {
+    margin-right: 30px;
+  }
+
+  .userName {
+    margin-right: 30px;
+  }

@@ -14,7 +14,7 @@ class SearchResult extends React.Component {
                 <div className="bbb">
                 <h2>Results</h2>
                 </div>
-                <Result groupname={this.props.groupname} groupid={this.props.groupId} userid={this.props.userid}></Result>
+                <Result className="result" groupname={this.props.groupname} groupid={this.props.groupId} userid={this.props.userid}></Result>
             </div>
         );
     }

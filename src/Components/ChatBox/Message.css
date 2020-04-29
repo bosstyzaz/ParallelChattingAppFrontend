@@ -29,7 +29,7 @@ img {
     margin-top: 20px;
   margin-left: 10px;  
   margin-right: 25%;
-  background-color: aquamarine;
+  background-color: #8DCDC8;
   position: relative;
   width: max-content;
   max-width: 360px;
@@ -58,3 +58,7 @@ img {
   background: aquamarine;
   border-bottom-right-radius: 10px;
 } */
+
+.userName {
+  margin-left: 15px;
+}

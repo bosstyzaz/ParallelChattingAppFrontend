@@ -34,8 +34,12 @@ class ChatBox extends React.Component {
     render() {
       return (
         <div className='chatbox-container'>
+        
           <Scrollbars className='scrollbar-chat'>
-          <h1>{this.state.groupName}</h1>
+          <div className="groupname-container">
+            <h1 className="groupName">{this.state.groupName}</h1>
+          </div>
+          <br/>
           {this.props.messages.map((message, index) => {
             if(message.senderId === this.props.id){
               return (
@@ -47,6 +51,7 @@ class ChatBox extends React.Component {
               }
           })}
           </Scrollbars>
+
           <TextInput sendMessage={this.sendMessage} id={this.props.id} group={this.props.groupID}/>
         </div>
       )
