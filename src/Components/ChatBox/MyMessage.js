@@ -1,5 +1,6 @@
 import React from "react";
 import "./MyMessage.css";
+import axios from 'axios';
 
 class MyMessage extends React.Component {
   constructor(props) {
@@ -9,10 +10,22 @@ class MyMessage extends React.Component {
     };
   }
 
+  componentWillMount() {
+    axios.get(`http://localhost:3001/clients/${this.props.username}`)
+        .then(res => {
+            this.setState({name: res.data.name})
+        })
+  }
+
   render() {
     return (
       <div class="mine messages flex-container" id="my_message">
-        <div class="message last">{this.props.message}</div>
+        <div className="userName">
+            <div>{this.state.name}</div>
+          </div>
+          <div class="yours messages">
+            <div class="message last">{this.props.text}</div>
+          </div>
       </div>
     );
   }

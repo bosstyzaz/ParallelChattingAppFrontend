@@ -37,9 +37,14 @@ class ChatBox extends React.Component {
           <Scrollbars className='scrollbar-chat'>
           <h1>{this.state.groupName}</h1>
           {this.props.messages.map((message, index) => {
-            return (
-              <Message key={index} username={message.senderId} text={message.text}/>
-            )
+            if(message.senderId === this.props.id){
+              return (
+                <MyMessage key={index} username={message.senderId} text={message.text}/>
+              )} else {
+                return (
+                  <Message key={index} username={message.senderId} text={message.text}/>
+                )
+              }
           })}
           </Scrollbars>
           <TextInput sendMessage={this.sendMessage} id={this.props.id} group={this.props.groupID}/>

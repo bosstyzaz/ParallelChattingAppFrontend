@@ -14,30 +14,38 @@ class ChatPage extends React.Component {
             id: null,
             groupList : [],
             atGroup: '',
-            messages: [{
-                senderId: 'boom',
-                text: 'Hey win, how are you ?'
-              },
-              {
-                senderId: 'win',
-                text: 'Great!! How about you ?'
-              },
-              {
-                senderId: 'boom',
-                text: "I'm great as well. "
-              },]
+            messages: [],
+              testmessage: [],
         }
         this.handleRead = this.handleRead.bind(this);
         this.handleUnread = this.handleUnread.bind(this);
         this.handleLeave = this.handleLeave.bind(this);
+        this.getMessages = this.getMessages.bind(this);
     }
 
-    handleRead(e){
-        this.setState({
+    async handleRead(e){
+        await this.setState({
             atGroup: e,
         });
-        console.log('eiei')
         //query read
+        this.getMessages()
+    }
+
+    async getMessages(){
+        await axios.get(`http://localhost:3001/messages/findbygroup/${this.state.atGroup}`)
+        .then(res => {
+            //console.log(res.data)
+            let l = res.data.length
+            let i;
+            let newmessage = [];
+            for(i=0 ; i<l; i++){
+                newmessage.push({
+                    senderId: res.data[i].sender,
+                    text: res.data[i].content
+                })
+            }
+            this.setState({messages: newmessage})
+        })
     }
 
     handleUnread(e){
@@ -48,7 +56,7 @@ class ChatPage extends React.Component {
     }
 
     handleLeave(e){
-        console.log('jjjjjj')
+        //console.log('jjjjjj')
         axios.put(`http://localhost:3001/groups/${e}/client/remove/${this.state.id}`)
         .then(res => {
             console.log(res)
@@ -70,7 +78,7 @@ class ChatPage extends React.Component {
 
     getGroup() {
         var memgroup;
-        console.log(this.state.id)
+        //console.log(this.state.id)
         axios.get(`http://localhost:3001/clients/${this.state.id}`)
         .then(res => {
             memgroup = res.data.group
@@ -79,7 +87,7 @@ class ChatPage extends React.Component {
                 for(let i=0; i< memgroup.length;i++){
                     axios.get(`http://localhost:3001/groups/${memgroup[i].group_id}`)
                     .then(res => {
-                        console.log(res)
+                        //console.log(res)
                         g.push({gname : res.data.name,
                             gid : res.data._id
                         })
@@ -92,7 +100,6 @@ class ChatPage extends React.Component {
 
 
     render(){
-        console.log(this.state.id)
         return(
             <div className='main-page'>
                 <div className='left-part'>

@@ -1,12 +1,21 @@
 import React from "react";
 import "./Message.css";
+import axios from 'axios';
 
 class Message extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: false,
+      name: null,
     };
+  }
+
+  componentWillMount() {
+    axios.get(`http://localhost:3001/clients/${this.props.username}`)
+        .then(res => {
+            this.setState({name: res.data.name})
+        })
   }
 
   render() {
@@ -14,7 +23,7 @@ class Message extends React.Component {
       <div className="flex-container">
         <div className="userName-Messsage">
           <div className="userName">
-            <div>{this.props.username}</div>
+            <div>{this.state.name}</div>
           </div>
           <div class="yours messages">
             <div class="message last">{this.props.text}</div>
