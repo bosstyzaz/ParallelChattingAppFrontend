@@ -19,7 +19,7 @@ class ChatPage extends React.Component {
         }
         this.handleRead = this.handleRead.bind(this);
         this.handleUnread = this.handleUnread.bind(this);
-        this.handleLeave = this.handleLeave.bind(this);
+        this.handleLeave = this.handleLeave.bind(this); 
         this.getMessages = this.getMessages.bind(this);
     }
 
@@ -100,6 +100,7 @@ class ChatPage extends React.Component {
 
 
     render(){
+        this.getMessages();
         return(
             <div className='main-page'>
                 <div className='left-part'>
