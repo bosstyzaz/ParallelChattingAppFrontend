@@ -60,7 +60,7 @@ class MyGroup extends React.Component {
             ></input>
           </div>
           <div className="column second-column">
-            <button className="create-group-button" onClick={this.createGroup}><FontAwesomeIcon icon={['fas', 'plus']} type="submit"/></button>
+            <button className="create-group-button" onClick={this.props.handleGetgroup.bind(this,this.state.groupName)}><FontAwesomeIcon icon={['fas', 'plus']} type="submit"/></button>
           </div>
         </div>
         

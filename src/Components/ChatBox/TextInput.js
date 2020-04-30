@@ -30,6 +30,7 @@ class TextInput extends React.Component {
     e.preventDefault()
     this.props.sendMessage(this.state.message)
     console.log(this.state.message)
+    if(this.state.message !== ''){
     Axios
       .post("http://localhost:3001/messages", {
         "content": this.state.message,
@@ -47,6 +48,7 @@ class TextInput extends React.Component {
       this.setState({
         message: ''
       })
+    }
   }
 
   render() {
