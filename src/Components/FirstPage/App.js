@@ -51,12 +51,12 @@ class FirstPage extends React.Component {
   render() {
     return (
       <div className='page-container'>
-          <div className='main-header'>The Best Group Chat Application</div>
+          <div className='main-header'>Talky Talker</div>
             <div className='main-container'>
                 <form onSubmit={this.handleEnter}>
                   <div className='main-component'>
                     <div className='main-subheader'>Please enter your username</div><br />
-                    <input className='main-input-box'  type='text' name='username' onChange={this.handleChange} placeholder='Enter your username' required />
+                    <input className='main-input-box'  type='text' name='username' onChange={this.handleChange} placeholder='Enter your username...' required />
                   </div>
                   <div>
                     <input className='main-enter-button' type='submit' value='Enter' />
