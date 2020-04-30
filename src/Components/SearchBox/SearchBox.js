@@ -35,7 +35,7 @@ class SearchBox extends React.Component {
     render() {
         let result;
         if(this.state.groupFound){
-            result = <div><h2> Results:</h2><h3><SearchResult className="search-result" groupname={this.state.groupFound} groupId={this.state.groupIdFound} userid = {this.props.id}></SearchResult></h3></div>
+            result = <div><h2> Results:</h2><h3><SearchResult className="search-result" groupname={this.state.groupFound} groupId={this.state.groupIdFound} userid = {this.props.id} handleJoin={this.props.handleJoin}></SearchResult></h3></div>
             console.log(this.state.groupIdFound)
         } else {
             result = <div><h2> Results:</h2><h3>     Not Found</h3></div>

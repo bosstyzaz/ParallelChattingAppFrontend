@@ -24,7 +24,7 @@ class Result extends React.Component {
                     <p>{this.props.groupname}</p>
                 </div>
                 <div className="column join-button-container">
-                    <button className="join-button" onClick={this.handleJoinGroup}><FontAwesomeIcon icon={['fas', 'cannabis']} type="submit"/></button>
+                    <button className="join-button" onClick={this.props.handleJoin.bind(this,this.props.groupid)}><FontAwesomeIcon icon={['fas', 'cannabis']} type="submit"/></button>
                 </div>
             </div>
         )

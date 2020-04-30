@@ -11,7 +11,7 @@ class SearchResult extends React.Component {
     render() {
         return (
             <div>
-                <Result className="result" groupname={this.props.groupname} groupid={this.props.groupId} userid={this.props.userid}></Result>
+                <Result className="result" groupname={this.props.groupname} groupid={this.props.groupId} userid={this.props.userid} handleJoin={this.props.handleJoin}></Result>
             </div>
         );
     }

@@ -23,7 +23,8 @@ class ChatPage extends React.Component {
         this.handleLeave = this.handleLeave.bind(this); 
         this.getMessages = this.getMessages.bind(this);
         this.getGroup = this.getGroup.bind(this);
-        this.handleGetgroup = this.handleGetgroup.bind(this);
+        this.handleCreategroup = this.handleCreategroup.bind(this);
+        this.handleResult = this.handleResult.bind(this);
     }
 
     async handleRead(e){
@@ -35,6 +36,7 @@ class ChatPage extends React.Component {
     }
 
     async getMessages(){
+        // console.log('get messages')
         await axios.get(`http://localhost:3001/messages/findbygroup/${this.state.atGroup}`)
         .then(res => {
             //console.log(res.data)
@@ -72,8 +74,8 @@ class ChatPage extends React.Component {
         
     }
 
-    handleGetgroup(e){
-        console.log(`${e}`)
+    handleCreategroup(e){
+        // console.log(`${e}`)
         if(e !== ''){
             axios.post("http://localhost:3001/groups", {
                 name: e,
@@ -81,11 +83,11 @@ class ChatPage extends React.Component {
                 message: [],
             })
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 axios.put(`http://localhost:3001/groups/${response.data._id}/client/add/${this.state.id}`
             )
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 this.getGroup()
             });
             })
@@ -94,6 +96,15 @@ class ChatPage extends React.Component {
             });
         }
         
+    }
+
+    handleResult(e) {
+        // console.log('eiei');
+        axios.put(`http://localhost:3001/groups/${e}/client/add/${this.state.id}`)
+        .then(res => {
+            // console.log(res)
+            this.getGroup()
+        })
     }
 
     componentWillMount(){
@@ -132,17 +143,17 @@ class ChatPage extends React.Component {
 
 
     render(){
-        this.getMessages();
+        setTimeout(this.getMessages, 850)
         return(
             <div className='main-page'>
                 <div className='left-part'>
-                    <SearchBox id={this.state.id}/>
+                    <SearchBox id={this.state.id} handleJoin={this.handleResult}/>
                     <MyGroup handleRead={this.handleRead}
                              handleUnread={this.handleUnread}
                              handleLeave={this.handleLeave} 
                              groupList={this.state.groupList}
                              userId ={this.state.id}
-                             handleGetgroup={this.handleGetgroup}/>
+                             handleGetgroup={this.handleCreategroup}/>
                 </div>
                 <div className='right-part'>
                     <ChatBox messages={this.state.messages} groupID={this.state.atGroup} id={this.state.id} groupName={this.state.groupList.name}/>
