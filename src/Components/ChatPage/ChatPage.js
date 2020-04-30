@@ -16,11 +16,14 @@ class ChatPage extends React.Component {
             atGroup: '',
             messages: [],
               testmessage: [],
+            createGroup : '',
         }
         this.handleRead = this.handleRead.bind(this);
         this.handleUnread = this.handleUnread.bind(this);
         this.handleLeave = this.handleLeave.bind(this); 
         this.getMessages = this.getMessages.bind(this);
+        this.getGroup = this.getGroup.bind(this);
+        this.handleGetgroup = this.handleGetgroup.bind(this);
     }
 
     async handleRead(e){
@@ -60,8 +63,37 @@ class ChatPage extends React.Component {
         axios.put(`http://localhost:3001/groups/${e}/client/remove/${this.state.id}`)
         .then(res => {
             console.log(res)
+            this.props.history.push({
+                pathname: '/ChatPage',
+                state: {id: this.state.id}
+            })
         })
         //tell backend to delete that group(e)
+        
+    }
+
+    handleGetgroup(e){
+        console.log(`${e}`)
+        if(e !== ''){
+            axios.post("http://localhost:3001/groups", {
+                name: e,
+                client: [],
+                message: [],
+            })
+            .then((response) => {
+                console.log(response);
+                axios.put(`http://localhost:3001/groups/${response.data._id}/client/add/${this.state.id}`
+            )
+            .then((res) => {
+                console.log(res);
+                this.getGroup()
+            });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }
+        
     }
 
     componentWillMount(){
@@ -109,7 +141,8 @@ class ChatPage extends React.Component {
                              handleUnread={this.handleUnread}
                              handleLeave={this.handleLeave} 
                              groupList={this.state.groupList}
-                             userId ={this.state.id}/>
+                             userId ={this.state.id}
+                             handleGetgroup={this.handleGetgroup}/>
                 </div>
                 <div className='right-part'>
                     <ChatBox messages={this.state.messages} groupID={this.state.atGroup} id={this.state.id} groupName={this.state.groupList.name}/>
